@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="h3">Liste des departements</h3>
+      <ul *ngFor="let departement of departements" class="list-group">
+        <div class="inline">
+          <li (click)="navigateToDetails(departement)" class="list-group-item">{{departement.libelle}} <span><button class="btn" (click)="deleteDepartement(departement)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></button></span> </li>
+        </div>
+
+      </ul>
+    </div>
+    <div class="container col-md-6">
+      <p class="text-danger" *ngIf="e">{{e.error}}</p>
+      <form #f="ngForm" (ngSubmit)="addDepartement(f.value)">
+        <div class="form-group">
+          <label>Code du departement</label>
+          <input type="text" class="form-control" ngModel name="code" placeholder="Ecrire Code">
+        </div>
+        <div class="form-group">
+          <label>Libelle du departement</label>
+          <input type="text" class="form-control" ngModel name="libelle" placeholder="Ecrire libelle">
+        </div>
+        <button type="submit" class="btn btn-dark">Ajouter un departement</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
